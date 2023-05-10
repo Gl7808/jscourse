@@ -1,10 +1,11 @@
 
-const myCity = {
-    city : 'Moscow',
-    popular : true ,
-    country : 'Russia'
+const name = 'vladislav'
+const postsQty =  23
+
+const userProfile = {
+    name : name,
+    postsQty : postsQty,
+    hasSignedAgreement : false
 }
 
-myCity.newPropercy = 'it done'
-
-console.log(myCity)
+console.log(userProfile.name)
