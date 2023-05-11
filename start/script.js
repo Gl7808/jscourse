@@ -1,24 +1,16 @@
 
-const button = {
-    widht : 200,
-    text : 'buy',
-    color: 'black'
-}
-const param = {
-    height : 300,
-    material : 'wood'
+
+
+let btn = document.getElementById('btn')
+let time = (t) => {
+    return t * 1000
 }
 
-const redButton = {
-    ...button,
-    color: 'red'
-}
+setTimeout(()=>{
+    console.log('timeout 5 second')
+}, time(5))
 
-const item = Object.assign({}, button, param)
 
-console.log(redButton, button, "some text", item)
-console.log(item.height, param.height)
-item.height = 200
-
-console.log(item.height, param.height)
-
+btn.onclick = (()=>{
+    console.log('click')
+})
