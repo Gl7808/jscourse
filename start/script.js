@@ -1,16 +1,9 @@
-
-
-
-let btn = document.getElementById('btn')
-let time = (t) => {
-    return t * 1000
-}
-
-setTimeout(()=>{
-    console.log('timeout 5 second')
-}, time(5))
-
-
-btn.onclick = (()=>{
-    console.log('click')
-})
+// function unusualFive() {
+//
+//     for (num<5) {
+//         g++
+//     }
+//     return g;
+// }
+let word = "fives";
+console.log(word.length);
