@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JavaScript</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         body{
             padding: 0;
@@ -23,7 +24,22 @@
 </head>
 <body>
     <div class="content">
-        <button id="btn">Click</button>
+        <div class="chat" id="chat">
+
+
+        </div>
+        <div class="counter">
+            <input id="openamount" placeholder="Сколько открыть" value="1"> <br>
+            <span>Профит</span><p id="profit">0</p>
+            <span>Потрачено</span><p id="spent">0</p>
+            <span>Открыто</span><p id="opend">0</p>
+        </div>
+        <button id="btn">Открыть</button>
+        <div class="image">
+            <p id="title"></p>
+            <img id="image" src="assets/image/SpiritCharm.png">
+        </div>
+        <div class="itemlist" id="itemlist"></div>
     </div>
 <script src="script.js"></script>
 </body>
