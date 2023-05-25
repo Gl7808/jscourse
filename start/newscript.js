@@ -1,13 +1,4 @@
-const btn = document.getElementById('btn')
-const image = document.getElementById('image')
-const title = document.getElementById('title')
-const price = 1100000
-const spent = document.getElementById('spent')
-const opend = document.getElementById('opend')
-const profit = document.getElementById('profit')
-const chat = document.getElementById('chat')
 
-//157 за 2к квестов
 const items = [{
     name: 'Идеальный приз', dropChance: 87.855, img: 'assets/image/perfect-token.png', cost: 500000, counter:0
 }, {
@@ -97,56 +88,11 @@ const drop = items => {
         current += item.dropChance;
     }
 };
-let counter = 0;
-let prof = 0;
-let openF = () => {
-    let obj = drop(items)
-    let road = obj.img;
-    let objcount = obj.counter + 1
-    obj.counter = objcount
-    prof += obj.cost
-    counter++;
-    console.log("Коробка №" + counter, obj)
-    image.src = road;
-    title.textContent = obj.name;
-    opend.textContent = counter;
-    spent.textContent = counter * price;
-    profit.textContent = prof - (counter * price);
-    if (prof - (counter * price) > 0) {
-        profit.style.color = 'green'
-    } else {
-        profit.style.color = 'red'
-    }
-    if (obj.cost > 10000000) {
-        title.style.color = 'gold'
-        let p = document.createElement('p');
-        let name = obj.name
-        p.innerHTML = ' '  + name;
-        chat.appendChild(p);
-    } else {
-        title.style.color = 'white'
-    }
-}
 
 
-let counterTable = () => {
-    document.querySelector('#itemlist').innerHTML = items.map(n => `
-    <div class="itemlist_container">
-        <div class="itemlist_title"><img src="${n.img}"> <span class="hidden_item_name">${n.name}</span>
-        <div class="itemlist_counter">${n.counter}</div>
-        </div>
-    </div>
 
-`).join('');
-}
-
+const btn = document.getElementById('opencase')
+const lootblock = document.getElementById('drop_container')
 btn.onclick = () => {
-    let amount = document.getElementById("openamount").value;
-    for (i=0; i<amount; i++){
-        openF()
-    }
-    counterTable()
-
+    lootblock.style.right = 200 + 'px'
 }
-
-counterTable()

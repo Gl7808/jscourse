@@ -15,10 +15,12 @@
 
         </div>
         <div class="counter">
-            <input id="openamount" placeholder="Сколько открыть" value="1"> <br>
+            <p id="changeAmount">0</p>
+            <input id="openamount" placeholder="Сколько открыть" value="1" type="range" min="1" max="100" step="1"> <br>
             <span>Профит</span><p id="profit">0</p>
             <span>Потрачено</span><p id="spent">0</p>
             <span>Открыто</span><p id="opend">0</p>
+            <button id="resetBtn">RESET</button>
         </div>
         <button id="btn">Открыть</button>
         <div class="image">

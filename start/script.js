@@ -6,7 +6,6 @@ const spent = document.getElementById('spent')
 const opend = document.getElementById('opend')
 const profit = document.getElementById('profit')
 const chat = document.getElementById('chat')
-let amount = 157
 
 //157 за 2к квестов
 const items = [{
@@ -103,7 +102,6 @@ let prof = 0;
 let openF = () => {
     let obj = drop(items)
     let road = obj.img;
-    let objname = obj.name
     let objcount = obj.counter + 1
     obj.counter = objcount
     prof += obj.cost
@@ -112,8 +110,14 @@ let openF = () => {
     image.src = road;
     title.textContent = obj.name;
     opend.textContent = counter;
-    spent.textContent = counter * price;
-    profit.textContent = prof - (counter * price);
+    spent.textContent = (counter * price) / 1000000 + ' млн.';
+    if((counter * price) / 1000000 > 1000) {
+        spent.textContent = ((counter * price) / 1000000000).toFixed(2) + ' млрд.';
+    }
+    profit.textContent = (prof - (counter * price)) / 1000000 + ' млн.';
+    if((prof - (counter * price)) / 1000000 > 1000) {
+        profit.textContent = ((prof - (counter * price)) / 1000000000).toFixed(2) + ' млрд.';
+    }
     if (prof - (counter * price) > 0) {
         profit.style.color = 'green'
     } else {
@@ -123,7 +127,7 @@ let openF = () => {
         title.style.color = 'gold'
         let p = document.createElement('p');
         let name = obj.name
-        p.innerHTML = ' '  + name;
+        p.innerHTML = `<img src='${image.src}'/>` + ' '  + name;
         chat.appendChild(p);
     } else {
         title.style.color = 'white'
@@ -152,3 +156,31 @@ btn.onclick = () => {
 }
 
 counterTable()
+
+
+let changeVale = document.getElementById('openamount')
+
+changeVale.oninput = () =>{
+    let i = changeVale.value
+    document.querySelector('#changeAmount').innerHTML = i;
+}
+
+let resetBtn = document.getElementById('resetBtn')
+resetBtn.onclick = () => {
+    for (i=0; i<items.length;i++){
+        items[i].counter = 0;
+        changeVale.value = 0;
+        prof = 0;
+        counter = 0;
+    }
+    document.querySelector('#changeAmount').innerHTML = changeVale.value;
+    counterTable();
+    opend.textContent = counter;
+    spent.textContent = counter * price;
+    profit.textContent = prof - (counter * price);
+    profit.style.color = "white"
+    let chatValue = chat.querySelectorAll("p")
+    for(i=0;i<chatValue.length;i++){
+        chatValue[i].remove()
+    }
+}

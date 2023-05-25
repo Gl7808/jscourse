@@ -1,145 +1,60 @@
 body{
-    background: #a4a4a4;
-}
-.content{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background: #2f477c;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-    width: 100%;
-
 }
-#title{
+a{
     color:#fff;
     font-weight: bold;
+    text-decoration: none;
 }
-
-.image{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.image img{
-    width: 40px;
-    height: 40px;
-}
-
-.chat{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 300px;
-    width: 400px;
-    background: rgba(114, 113, 113, 0.64);
+.content{
+    height: 70vh;
+    width: 70%;
+    background: rgba(0, 0, 0, 0.49);
     border-radius: 10px;
-    color:#fff;
-    overflow: scroll;
-    overflow-x: hidden;
-}
-.chat::-webkit-scrollbar { width: 0; }
-.chat p:before{
-    content: "мир";
-    font-weight: bold;
-    background: #c7b01b;
-    border: 1px solid #fff;
-    border-radius: 3px;
-    padding: 2px;
-    margin-right: 10px;
-    font-size: 0.8em;
-    color:#fff;
-}
-.chat p{
-    margin-left: 10px;
-    color:orange;
-}
-
-
-.all-item{
-    position: absolute;
-    right:0;
-    top: 0;
-}
-
-.table{
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 700px;
-    overflow: scroll;
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
-}
-.table tbody{
-    color:#fff;
-    overflow: scroll;
-    overflow-x: hidden;
-    width: 500px;
-}
-tbody td:nth-child(3){
-    color:orange;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-
-.itemlist{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 2px;
-    height: 400px;
-    width: 150px;
-    position: absolute;
-    right: 30%;
-    top: 50%;
+.navigation{
+    position: fixed;
+    left: 20px;
+    top:50%;
     transform: translateY(-50%);
-    flex-wrap: wrap;
 }
-.itemlist_conteiner{
-    position: relative;
+.lootbox_container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.itemlist_counter{
-    position: absolute;
-    color:#fff;
-    left:3px;
-    bottom:3px;
-    text-shadow: 1px 1px 5px  #111;
-
+.lootbox_container ul{
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
 }
-.itemlist_title{
-    position: relative;
-    color:#fff;
-    font-weight: bold;
+.lootbox_container ul>li{
+    list-style-type: none;
+    min-width: 100px;
+    height: 100px;
+    border:1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.itemlist::-webkit-scrollbar { width: 0; }
-.hidden_item_name{
-    display: none;
-    background: grey;
-    width: 200px;
-    position: absolute;
-    left: 40px;
-    top:0;
-    padding: 4px;
-    border-radius: 2px;
-    border:1px solid #fff;
-    z-index: 2;
-}
-.itemlist_title:hover .hidden_item_name{
-    display: block;
+.lootbox_container ul>li>img{
+    width: 100%;
 }
 
-.counter{
-    position: absolute;
-    left: 50px;
-    top: 45%;
-    font-weight: bold;
-    color:#fff;
-}
-#btn{
-    padding: 10px;
-    border:none;
-    color:#fff;
-    border-radius: 3px;
-    background: #544848;
-    cursor: pointer;
+.opencase{
+    width: 100px;
 }

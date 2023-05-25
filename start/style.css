@@ -52,7 +52,9 @@ body{
 }
 .chat p{
     margin-left: 10px;
-    color:orange;
+    color: #ecc57d;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -131,7 +133,7 @@ tbody td:nth-child(3){
 .counter{
     position: absolute;
     left: 50px;
-    top: 45%;
+    top: 30%;
     font-weight: bold;
     color:#fff;
 }
