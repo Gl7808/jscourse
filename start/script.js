@@ -5,11 +5,11 @@ const price = 1100000
 const spent = document.getElementById('spent')
 const opend = document.getElementById('opend')
 const profit = document.getElementById('profit')
-const chat = document.getElementById('chat')
+const chat = document.getElementById('chat_container')
 
 //157 за 2к квестов
 const items = [{
-    name: 'Идеальный приз', dropChance: 87.855, img: 'assets/image/perfect-token.png', cost: 500000, counter:0
+    name: 'Идеальный приз', dropChance: 87.855, img: 'assets/image/perfect-token.png', cost: 250000, counter:0
 }, {
     name: 'Отличный приз', dropChance: 2.5, img: 'assets/image/TokenOfBestLuck.png', cost: 5000000, counter:0
 }, {
@@ -69,7 +69,7 @@ const items = [{
 }, {
     name: 'Дух звездного неба', dropChance: 0.008, img: 'assets/image/SpiritStarSky.png', cost: 450000, counter:0
 }, {
-    name: 'Несравненный плащ', dropChance: 0.008, img: 'assets/image/godcape.png', cost: 4500000000, counter:0
+    name: 'Несравненный плащ', dropChance: 0.008, img: 'assets/image/godcape.png', cost: 450000000, counter:0
 }, {
     name: 'Капюшон победителя', dropChance: 0.0001, img: 'assets/image/HeavenHat.png', cost: 450000000, counter:0
 }, {
@@ -77,11 +77,11 @@ const items = [{
 }, {
     name: 'Шлем победы', dropChance: 0.0001, img: 'assets/image/helmofwin.png', cost: 450000000, counter:0
 }, {
-    name: 'Загадочное ограбление', dropChance: 0.05, img: 'assets/image/SpiritCharm.png', cost: 450000, counter:0
+    name: 'Загадочное ограбление', dropChance: 0.05, img: 'assets/image/mystRobb.png', cost: 450000, counter:0
 }, {
-    name: 'Свиток дракона', dropChance: 0.03, img: 'assets/image/SpiritCharm.png', cost: 450000, counter:0
+    name: 'Свиток дракона', dropChance: 0.03, img: 'assets/image/DragonScroll.png', cost: 450000, counter:0
 }, {
-    name: 'Яшмовый осколок', dropChance: 0.01, img: 'assets/image/SpiritCharm.png', cost: 450000, counter:0
+    name: 'Яшмовый осколок', dropChance: 0.01, img: 'assets/image/Splinter.png', cost: 450000, counter:0
 }];
 
 const lerp = (min, max, value) => ((1 - value) * min + value * max);
@@ -100,6 +100,8 @@ const drop = items => {
 let counter = 0;
 let prof = 0;
 let openF = () => {
+    let data = new Date();
+    let time = data.getHours() + ":" +  data.getMinutes() + ":" +  data.getSeconds();
     let obj = drop(items)
     let road = obj.img;
     let objcount = obj.counter + 1
@@ -119,15 +121,15 @@ let openF = () => {
         profit.textContent = ((prof - (counter * price)) / 1000000000).toFixed(2) + ' млрд.';
     }
     if (prof - (counter * price) > 0) {
-        profit.style.color = 'green'
+        profit.style.color = '#52ff7a'
     } else {
         profit.style.color = 'red'
     }
-    if (obj.cost > 10000000) {
+    if (obj.cost > filterPrice.value) {
         title.style.color = 'gold'
         let p = document.createElement('p');
         let name = obj.name
-        p.innerHTML = `<img src='${image.src}'/>` + ' '  + name;
+        p.innerHTML = `<span class"chat_counter">${counter}</span>` + `<img src='${image.src}'/>` +  `<span class='chat_itemName'>${name}</span>`;
         chat.appendChild(p);
     } else {
         title.style.color = 'white'
@@ -138,7 +140,7 @@ let openF = () => {
 let counterTable = () => {
     document.querySelector('#itemlist').innerHTML = items.map(n => `
     <div class="itemlist_container">
-        <div class="itemlist_title"><img src="${n.img}"> <span class="hidden_item_name">${n.name}</span>
+        <div class="itemlist_title"><img src="${n.img}"> <span class="hidden_item_name">${n.name} <br> ${(n.cost*n.counter)/1000000 + ' млн.'}</span>
         <div class="itemlist_counter">${n.counter}</div>
         </div>
     </div>
@@ -162,18 +164,20 @@ let changeVale = document.getElementById('openamount')
 
 changeVale.oninput = () =>{
     let i = changeVale.value
-    document.querySelector('#changeAmount').innerHTML = i;
+    document.querySelector('#changeAmount').innerHTML = i  + ' шт.';
 }
 
 let resetBtn = document.getElementById('resetBtn')
 resetBtn.onclick = () => {
     for (i=0; i<items.length;i++){
         items[i].counter = 0;
-        changeVale.value = 0;
+        changeVale.value = 1;
         prof = 0;
         counter = 0;
+        filterPrice.value = 0;
     }
     document.querySelector('#changeAmount').innerHTML = changeVale.value;
+    document.querySelector('#filterPriceAmount').innerHTML = filterPrice.value
     counterTable();
     opend.textContent = counter;
     spent.textContent = counter * price;
@@ -183,4 +187,16 @@ resetBtn.onclick = () => {
     for(i=0;i<chatValue.length;i++){
         chatValue[i].remove()
     }
+}
+
+let filterPrice = document.getElementById('filterPrice')
+filterPrice.oninput = () =>{
+    let i = filterPrice.value
+    if (i > 1000000 ) {
+        i = i/1000000
+        document.querySelector('#filterPriceAmount').innerHTML = i + ' млн.';
+    } else {
+        document.querySelector('#filterPriceAmount').innerHTML = i;
+    }
+
 }

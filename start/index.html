@@ -11,23 +11,48 @@
 <body>
     <div class="content">
         <div class="chat" id="chat">
+            <div class="chat_title">
+                История
+            </div>
+            <div class="chat_container" id="chat_container"></div>
+        </div>
+
+        <div class="open_container">
+
+            <div class="open_block">
+                <div>
+                    <button id="btn" class="btn">Открыть</button>
+                    <button id="resetBtn" class="btn">Сбросить</button>
+                </div>
+
+                <div class="image">
+                    <p id="title"></p>
+                    <img id="image" src="assets/image/SpiritCharm.png">
+                </div>
+            </div>
+            <div class="counter">
+                <div>
+                    <span>Открыть сундуков</span>
+                    <p id="changeAmount">0</p>
+                    <input id="openamount" placeholder="1" value="1" type="range" min="1" max="157" step="1"> <br>
+                </div>
+                <div>
+                    <span>Фильтр цены</span>
+                    <p id="filterPriceAmount">0</p>
+                    <input id="filterPrice" placeholder="Сколько открыть" value="200000" type="range" min="200000" max="100000000" step="100000"> <br>
+                </div>
+                <div class="profit_block">
+                    <div><span>Профит</span><p id="profit">0</p></div>
+                    <div><span>Потрачено</span><p id="spent">0</p></div>
+                    <div><span>Открыто</span><p id="opend">0</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="itemlist" id="itemlist">
+        </div>
 
 
-        </div>
-        <div class="counter">
-            <p id="changeAmount">0</p>
-            <input id="openamount" placeholder="Сколько открыть" value="1" type="range" min="1" max="100" step="1"> <br>
-            <span>Профит</span><p id="profit">0</p>
-            <span>Потрачено</span><p id="spent">0</p>
-            <span>Открыто</span><p id="opend">0</p>
-            <button id="resetBtn">RESET</button>
-        </div>
-        <button id="btn">Открыть</button>
-        <div class="image">
-            <p id="title"></p>
-            <img id="image" src="assets/image/SpiritCharm.png">
-        </div>
-        <div class="itemlist" id="itemlist"></div>
+
     </div>
 <script src="script.js"></script>
 </body>
