@@ -1,0 +1,13 @@
+
+body{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    width: 80%;
+}
+
+.boss_block{
+    padding: 10px;
+    border: 1px solid grey;
+}

@@ -136,6 +136,7 @@ p .chat_itemName {
     font-weight: bold;
     color:#fff;
     grid-gap: 5px;
+    width: 100%;
 }
 .btn{
     padding: 10px;
@@ -166,7 +167,7 @@ p .chat_itemName {
 .profit_block{
     display: grid;
     align-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr;
     flex-wrap: wrap;
-    grid-gap: 10px;
+    grid-gap: 5px;
 }

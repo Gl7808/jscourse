@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PWDashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <nav class="nav"></nav>
+        <div class="character_parameter">
+            <div class="character_default-option">
+                <select class="character_profession" id="character_profession">
+                    <option>Воин</option>
+                    <option>Маг</option>
+                    <option>Оборотень</option>
+                    <option>Друид</option>
+                    <option>Жрец</option>
+                    <option>Лучник</option>
+                    <option>Убийца</option>
+                    <option>Шаман</option>
+                    <option>Страж</option>
+                    <option>Мистик</option>
+                </select>
+                <input class="character_level" id="character_level" type="number" placeholder="Level" value="1" min="1" max="105">
+                <select class="character_cultivation">
+                    <option>Любопытный</option>
+                    <option>Опытный</option>
+                    <option>Рассудительный</option>
+                    <option>Загадочный</option>
+                    <option>Жестокий</option>
+                    <option>Злой</option>
+                    <option>Отрешенный</option>
+                    <option>Благочестивый</option>
+                    <option>Безупречный</option>
+                    <option>Демон</option>
+                    <option>Просвещенный</option>
+                    <option>Дух Зла</option>
+                    <option>Бессмертный</option>
+                    <option>Сын ада</option>
+                </select>
+                <input class="character_reputation" type="number" placeholder="reputation" value="1" min="1" max="1000000">
+                <select class="character_skylevel">
+                    <option>Тайное небо</option>
+                    <option>Небо миражей</option>
+                    <option>Совершенное небо</option>
+                    <option>Призрачное небо</option>
+                </select>
+            </div>
+            <div class="character_attr">
+                <div class="attr_str">
+                    <span>STR</span>
+                    <input type="number" value="5" min="3" >
+                </div>
+                <div class="attr_agi">
+                    <span>agi</span>
+                    <input type="number" value="5" min="3" >
+                </div>
+                <div class="attr_int">
+                    <span>int</span>
+                    <input type="number" value="5" min="3" >
+                </div>
+                <div class="attr_con">
+                    <span>con</span>
+                    <input type="number" value="5" min="3" >
+                </div>
+                <div class="character_info" id="character_info">
+                    <div class="characters_params"><span>Здоровье</span> <span id="hitpoint"></span></div>
+                    <div class="characters_params"><span>Физическая атака</span> <span id="physical_attack"></span></div>
+                    <div class="characters_params"><span>Магическая атака</span> <span id="magical_attack"></span></div>
+                    <div class="characters_params"><span>Шанс крита</span> <span id="critical_rate"></span></div>
+                    <div class="characters_params"><span>Скорость Атаки</span> <span id="attack_rate"></span></div>
+                    <div class="characters_params"><span>Скорость каста</span> <span id="channeling"></span></div>
+                    <div class="characters_params"><span>Меткость</span> <span id="accuracy"></span></div>
+                    <div class="characters_params"><span>Уклонение</span> <span id="evasion"></span></div>
+                    <div class="characters_params"><span>Показатель атаки</span> <span id="attack_level"></span></div>
+                    <div class="characters_params"><span>Умень.физ.урона</span> <span id="physicalDamage_reduction"></span></div>
+                    <div class="characters_params"><span>Скорость</span> <span id="speed"></span></div>
+                    <div class="characters_params"><span>Боевой дух</span> <span id="spirit"></span></div>
+                    <div class="characters_params"><span>Физическое пробивание</span> <span id="physical_penetration"></span></div>
+                    <div class="characters_params"><span>Физическая защита</span> <span id="physical_defense"></span></div>
+                    <div class="characters_params"><span>Магическая защита</span> <span id="magical_defense"></span></div>
+                    <div class="characters_params"><span>Металл</span> <span id="metal_defense"></span></div>
+                    <div class="characters_params"><span>Дерево</span> <span id="wood_defense"></span></div>
+                    <div class="characters_params"><span>Вода</span> <span id="water_defense"></span></div>
+                    <div class="characters_params"><span>Огонь</span> <span id="fire_defense"></span></div>
+                    <div class="characters_params"><span>Земля</span> <span id="earth_defense"></span></div>
+                    <div class="characters_params"><span>Показатель защиты</span> <span id="defense_level"></span></div>
+                    <div class="characters_params"><span>Умень.маг.урона</span> <span id="magical_damage_reduction"></span></div>
+                    <div class="characters_params"><span>Критический урон</span> <span id="rage_damage"></span></div>
+                    <div class="characters_params"><span>Сила духа</span> <span id="soulforce"></span></div>
+                    <div class="characters_params"><span>Маг.пробивание</span> <span id="magic_penetration"></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="character_inventory">
+            <select class="weapon" id="weapon">
+                <option>Без оружия</option>
+                <option>Топор кровавого упыря</option>
+                <option>Стальное сердце короля-льва</option>
+            </select>
+        </div>
+        <div class="character_amplification"></div>
+    </div>
+</div>
+</body>
+<script src="script.js"></script>
+</html>

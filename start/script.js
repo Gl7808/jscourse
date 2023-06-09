@@ -8,7 +8,8 @@ const profit = document.getElementById('profit')
 const chat = document.getElementById('chat_container')
 
 //157 за 2к квестов
-const items = [{
+const items = [
+    {
     name: 'Идеальный приз', dropChance: 87.855, img: 'assets/image/perfect-token.png', cost: 250000, counter:0
 }, {
     name: 'Отличный приз', dropChance: 2.5, img: 'assets/image/TokenOfBestLuck.png', cost: 5000000, counter:0
